@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["michal.rogowski1@gmail.com"]
   spec.summary       = %q{Get DNS/ip addresses of AWS EC2 instances filtered by custom criteria}
   spec.description   = %q{Get DNS/ip addresses of AWS EC2 instances filtered by custom criteria (tag, name, status etc)}
-  spec.homepage      = "https://github.com/rogal111/capistrano-ec2-filter"
+  spec.homepage      = "https://github.com/rogal111/capistrano-ec2filter"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
