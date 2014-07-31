@@ -5,7 +5,7 @@ require 'capistrano/ec2filter/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "capistrano-ec2filter"
-  spec.version       = Capistrano::Ec2::Filter::VERSION
+  spec.version       = Capistrano::Ec2filter::VERSION
   spec.authors       = ["Michał Rogowski"]
   spec.email         = ["michal.rogowski1@gmail.com"]
   spec.summary       = %q{Get DNS/ip addresses of AWS EC2 instances filtered by custom criteria}
@@ -18,6 +18,6 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "capistrano", ">=2.1.0"
-  spec.add_dependency "aws-sdk", ">=1.3.0"
+  spec.add_dependency "capistrano", "~>2.1"
+  spec.add_dependency "aws-sdk", "~>1.3"
 end

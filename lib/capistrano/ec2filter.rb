@@ -7,7 +7,7 @@ end
 
 module Capistrano
   module Ec2filter
-    def self.extend(configuration)
+    def self.load_into(configuration)
       configuration.load do
         _cset(:aws_access_key_id, ENV["AWS_ACCESS_KEY_ID"])
         _cset(:aws_secret_access_key, ENV["AWS_SECRET_ACCESS_KEY"])
@@ -38,5 +38,5 @@ module Capistrano
 end
 
 if Capistrano::Configuration.instance
-  Capistrano::Ec2filer.extend(Capistrano::Configuration.instance)
+  Capistrano::Ec2filer.load_into(Capistrano::Configuration.instance)
 end
