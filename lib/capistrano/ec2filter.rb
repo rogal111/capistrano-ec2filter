@@ -38,5 +38,5 @@ module Capistrano
 end
 
 if Capistrano::Configuration.instance
-  Capistrano::Ec2filer.load_into(Capistrano::Configuration.instance)
+  Capistrano::Ec2filter.load_into(Capistrano::Configuration.instance)
 end
