@@ -47,15 +47,15 @@ set :aws_secret_access_key, "..."
 Define your servers:
 
 ```ruby
-ec2_group("tag:application"=>"SuperApp", "tag:layer"=>"application") do |address|
+ec2_filter("tag:application"=>"SuperApp", "tag:layer"=>"application") do |address|
   server address, :web, :app
 end
 
-ec2_group("tag:application"=>"SuperApp", "tag:layer"=>"workers") do |address, instance|
+ec2_filter("tag:application"=>"SuperApp", "tag:layer"=>"workers") do |address, instance|
   server address, :app, :jobs, :min_job_priority: 10
 end
 
-ec2_group("placement-group-name"=>"matrix") do |address, instance|
+ec2_filter("placement-group-name"=>"matrix") do |address, instance|
   server address, :matrix, platform: instance.platform
 end
 ```
@@ -64,10 +64,10 @@ end
 
 `address` - dns/ip address of instance = `instance.dns_name || instance.ip_address || instance.private_ip_address`
 
-By default ec2_group apply `"instance-state-name" => "running"` filter. You can overwrite this:
+By default ec2_filter apply `"instance-state-name" => "running"` filter. You can overwrite this:
 
 ```ruby
-  ec2_group("instance-state-name" => ["stopped", "stopping"], "tag:layer"=>"application") do |address|
+  ec2_filter("instance-state-name" => ["stopped", "stopping"], "tag:layer"=>"application") do |address|
     server address, :app, stopped: true
   end
 ```

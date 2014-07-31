@@ -13,7 +13,7 @@ module Capistrano
         _cset(:aws_secret_access_key, ENV["AWS_SECRET_ACCESS_KEY"])
         _cset(:aws_ec2_endpoint, ENV["AWS_EC2_ENDPOINT"])
 
-        def ec2_group(filters = {})
+        def ec2_filter(filters = {})
           filters = { "instance-state-name" => "running" }.merge(filters)
           @aws_ec2 ||= AWS::EC2.new(
                      access_key_id: fetch(:aws_access_key_id),
